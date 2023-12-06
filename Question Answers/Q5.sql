@@ -4,7 +4,7 @@
 -- EXPLAIN QUERY PLAN
 -- Somehow limiting the data in the minitrip CTE enables the query to run in a reasonable time ~20 seconds
 -- Although this has a significant storage overhead as the table has to be created, dropped and vacuumed
--- To be completely honest I don't understand the query tree
+-- To be completely honest I don't understand the difference in the query plan
 CREATE TABLE IF NOT EXISTS joined_trip_dates AS
 WITH dates AS (
     SELECT
