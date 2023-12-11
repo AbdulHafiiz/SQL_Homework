@@ -1,6 +1,6 @@
-.timer ON
-.mode column
 .echo OFF
+.timer ON
+.mode columns
 
 /*
 Comparing the performance of joins on different types of data

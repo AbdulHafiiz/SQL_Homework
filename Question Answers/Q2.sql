@@ -1,4 +1,6 @@
-.headers
+.echo OFF
+.timer ON
+.mode columns
 -- EXPLAIN QUERY PLAN
 SELECT
     COUNT(*) as `station_count`,
