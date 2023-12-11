@@ -1,11 +1,13 @@
+.echo OFF
 .timer ON
-.mode column
+.mode columns
 
 -- EXPLAIN QUERY PLAN
 -- Somehow limiting the data in the mini_trip CTE enables the query to run in a reasonable time ~20 seconds
 -- Although this has a significant storage overhead as the table has to be created, dropped and vacuumed
 -- To be completely honest I don't understand the difference in the query plan
 -- EXPLAIN QUERY PLAN
+
 BEGIN;
 
     -- Temp table is used to store length of mini_trip table 
@@ -44,7 +46,7 @@ BEGIN;
         WHERE bike_id <= 100
         LIMIT (SELECT int_value FROM _variables WHERE var_name = 'mini_trip_len') -- Somehow makes this query executable, I have no idea why
     )
-    SELECT *
+    SELECT dates.tdate, mini_trip.end_time, mini_trip.start_time, mini_trip.bike_id
     FROM dates
     CROSS JOIN mini_trip;
 
@@ -54,7 +56,6 @@ BEGIN;
     WHERE name='joined_trip_dates';
 
     -- Average duration calculation
-    EXPLAIN QUERY PLAN
     SELECT
         tdate,
         ROUND(

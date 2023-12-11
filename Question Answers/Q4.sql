@@ -1,4 +1,6 @@
-.headers ON
+.echo OFF
+.timer ON
+.mode columns
 -- EXPLAIN QUERY PLAN
 WITH station_visits AS (
     SELECT
