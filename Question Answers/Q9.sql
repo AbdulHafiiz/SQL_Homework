@@ -4,7 +4,7 @@
 
 BEGIN;
 
-    EXPLAIN QUERY PLAN
+    -- EXPLAIN QUERY PLAN
     WITH short_trip AS (
         SELECT
             trip.start_station_id,
